@@ -1,0 +1,38 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: |
+  This template launches an EC2 instance with a SG which enable SSH and HHTP
+
+Resources:
+  CFNInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-08b5b3a93ed654d19
+      InstanceType: t2.micro
+      KeyName: halloworld #please use your keypair name without pem 
+      SecurityGroupIds: 
+        - !Ref CFNSecGroups
+      Tags: 
+        - Key: Name
+          Value: suemeyye-first-CFN-instance
+        - Key: Departmant
+          Value: aws-devops
+  
+  CFNSecGroups:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Enables SSH and HTTP for CFN Instances  # Required
+      #GroupName: suemeyye-first-CFN-sec-group
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+          Description: enable http port
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+          Description: enable ssh port
+      Tags: 
+        - Key: Name
+          Value: suemeyye-first-CFN-sec-group

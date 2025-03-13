@@ -1,0 +1,80 @@
+# First yaml comment  ####  İlk yaml yorumu
+# Second comment #### İkinci yorum
+---
+key: value
+instructor: paul
+---
+
+
+# List of strings #### Dizelerin listesi
+- paul
+- osvaldo
+- james
+
+---
+
+[paul, osvaldo, james]
+
+---
+instructors: 
+ - paul
+ - osvaldo
+ - james
+
+---
+# An employee record  #### Bir çalışan kaydı
+
+instructor: 
+  name: paul
+  job: solutions-arct
+  department: aws
+  age: 37
+
+---
+# Employee list    ####  Çalışan listesi 
+
+instructors:
+  - name: paul
+    job: solutions-arct
+    department: aws
+    age: 37
+  - name: callahan
+    job: solutions-arct
+    department: aws
+    age: 40
+
+---
+
+-  instructor1: 
+      name: paul
+      job: solutions-arct
+      department: aws
+      age: 37
+-  instructor2: 
+      name: james
+      job: devops-eng
+      department: 
+        - devops
+        - aws
+      age: 36
+---
+# Another object format    #### Başka bir nesne biçimi 
+
+instructor:
+  {name: callahan, job: devops-eng, department: [aws, devops], age: 40}
+
+...
+
+#Multiple lines values    #### Çoklu satır değerleri 
+
+example1: |  # Keeps the block    #### Bloğu tutar 
+  paul
+  Solutions Architect
+  Ondia LLC.
+example2: > # This text will be a sentence      ####  Bu metin bir cümle olacaktır.
+  This
+  text
+  will
+  be
+  a
+  sentence
